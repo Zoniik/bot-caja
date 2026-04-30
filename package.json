@@ -5,6 +5,7 @@
 
   "scripts": {
     "start": "node bot.js",
+	"postinstall": "npx puppeteer browsers install chrome",
     "electron": "electron .",
     "build": "electron-builder"
   },
