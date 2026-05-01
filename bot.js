@@ -20,8 +20,12 @@ const client = new Client({
     }),
     puppeteer: {
         headless: true,
-        executablePath: puppeteer.executablePath(),
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        executablePath: '/opt/render/.cache/puppeteer/chrome/linux-*/chrome-linux64/chrome',
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage'
+        ]
     }
 });
 
