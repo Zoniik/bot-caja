@@ -5,7 +5,6 @@
 
   "scripts": {
     "start": "node bot.js",
-	"postinstall": "npx puppeteer browsers install chrome",
     "electron": "electron .",
     "build": "electron-builder"
   },
@@ -14,6 +13,7 @@
     "express": "^4.19.2",
     "qrcode": "^1.5.4",
     "whatsapp-web.js": "^1.25.0"
+    "puppeteer": "^22.0.0"
   },
 
   "devDependencies": {
