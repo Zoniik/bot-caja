@@ -12,12 +12,15 @@ if (!fs.existsSync(DATA_PATH)) {
     fs.mkdirSync(DATA_PATH, { recursive: true });
 }
 
+const puppeteer = require('puppeteer');
+
 const client = new Client({
     authStrategy: new LocalAuth({
         dataPath: './session'
     }),
     puppeteer: {
         headless: true,
+        executablePath: puppeteer.executablePath(),
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     }
 });
