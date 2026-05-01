@@ -12,28 +12,12 @@ if (!fs.existsSync(DATA_PATH)) {
     fs.mkdirSync(DATA_PATH, { recursive: true });
 }
 
-function getChromePath() {
-    const basePath = '/opt/render/.cache/puppeteer/chrome';
-
-    if (!fs.existsSync(basePath)) return null;
-
-    const versions = fs.readdirSync(basePath);
-    if (versions.length === 0) return null;
-
-    const chromeDir = path.join(basePath, versions[0], 'chrome-linux64', 'chrome');
-
-    return chromeDir;
-}
-
-const chromePath = getChromePath();
-
 const client = new Client({
     authStrategy: new LocalAuth({
         dataPath: './session'
     }),
     puppeteer: {
         headless: true,
-        executablePath: chromePath || undefined,
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
